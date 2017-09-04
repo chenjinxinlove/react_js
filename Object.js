@@ -12,17 +12,49 @@ var book = {
     edition: 1
 };
 
-Object.defineProperty(book, "year", {
-    get: function () {
-        return this._year;
+// Object.defineProperty(book, "year", {
+//     get: function () {
+//         return this._year;
+//     },
+//     set: function (newValue) {
+//         if (newValue > 2004) {
+//             this._year = newValue;
+//             this.edition += newValue - 2004;
+//         }
+//     }
+// })
+
+book.year = 2019;
+console.log(book);//{ _year: 2019, edition: 16 }
+
+
+var books = {};
+
+Object.defineProperties(books, {
+    _year: {
+        value: 2004
     },
-    set: function (newValue) {
-        if (newValue > 2004) {
-            this._year = newValue;
-            this.edition += newValue - 2004;
+
+    edition: {
+        value: 1
+    },
+    year: {
+        get: function() {
+            return this._year;
+        },
+
+        set: function (newValue) {
+            if(newValue > 2004) {
+                this._year = newValue;
+                this.edition += newValue - 2004;
+            }
         }
     }
 })
 
-book.year = 2019;
-console.log(book);//{ _year: 2019, edition: 16 }
+var descriptor = Object.getOwnPropertyDescriptor(books, "_year");
+console.log(descriptor);
+var descriptor = Object.getOwnPropertyDescriptor(books, "year");
+console.log(descriptor);
+var descriptor = Object.getOwnPropertyDescriptor(books, "year");
+console.log(descriptor);
