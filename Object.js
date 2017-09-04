@@ -25,4 +25,4 @@ Object.defineProperty(book, "year", {
 })
 
 book.year = 2019;
-console.log(book);
+console.log(book);//{ _year: 2019, edition: 16 }
