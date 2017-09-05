@@ -58,3 +58,26 @@ var descriptor = Object.getOwnPropertyDescriptor(books, "year");
 console.log(descriptor);
 var descriptor = Object.getOwnPropertyDescriptor(books, "year");
 console.log(descriptor);
+
+
+function Person (name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.sayName = function() {
+        alert(this.name);
+    }
+}
+
+var person1 = new Person('chen', 29, 'so');
+var person2 = new Person('jin', 23, 'sssdd');
+
+console.log(person1.constructor == Person)
+
+console.log(person1 instanceof Object);
+console.log(person1 instanceof Person);
+
+console.log(Person.prototype.isPrototypeOf(person1));
+
+console.log(Object.getPrototypeOf(person1) == Person.prototype);
+console.log(Object.getPrototypeOf(person1).name);
