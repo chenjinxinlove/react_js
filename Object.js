@@ -81,3 +81,15 @@ console.log(Person.prototype.isPrototypeOf(person1));
 
 console.log(Object.getPrototypeOf(person1) == Person.prototype);
 console.log(Object.getPrototypeOf(person1).name);
+
+function Per(){
+
+}
+
+Per.prototype = {
+    constructor: Per,
+    name: 'chen',
+    age: '29',
+    job: 'sss'
+};
+
