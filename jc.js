@@ -1,7 +1,7 @@
 // 原型继承
 
-function Parent () {
-    this.name = 'chen';
+function Parent (name) {
+    this.name = name;
     this.age = 'age';
 }
 
@@ -9,11 +9,27 @@ Parent.prototype.getName = function () {
     return this.name;
 }
 
-function Son () {
+// function Son () {
+//     Parent.call(this, 'chen');
+// }
 
+// function object(o) {
+//     function F() {};
+//     F.prototype = o;
+//     return new F();
+// }
+
+// Son.prototype = object(Parent.prototype);
+// Son.prototype.constructor = Son;
+
+class Son extends Parent {
+    constructor(name) {
+        super(name);
+    }
+    getNamedd () {
+        return super.getName();
+    }
 }
 
-Son.prototype = new parent();
-Son.prototype.constructor = Son;
-
-var f = new Son();
+var f = new Son('chen');
+console.log(f.getNamedd);
