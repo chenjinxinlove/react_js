@@ -31,5 +31,9 @@ class Son extends Parent {
     }
 }
 
+
+
+
+
 var f = new Son('chen');
 console.log(f.getNamedd);
